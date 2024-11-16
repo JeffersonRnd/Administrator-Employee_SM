@@ -66,19 +66,6 @@ function previewImage(id) {
     }
 }
 
-
-function setupEventListeners() {
-    // Home icon - reload page
-    document.querySelector('.home-icon').addEventListener('click', () => {
-        window.location.reload();
-    });
-
-    // User icon
-    document.querySelector('.user-icon').addEventListener('click', () => {
-        window.open('https://jeffersonrnd.github.io/LOG_SM/', '_blank');
-    });
-}
-
 // Actualiza los datos del producto
 function updateItem(id, category) {
     const imgSrc = document.getElementById(`img-${id}`).src;
@@ -134,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
 });
 
+// script.js
 function setupEventListeners() {
     // Home icon - reload page
     document.querySelector('.home-icon').addEventListener('click', () => {
@@ -142,21 +130,15 @@ function setupEventListeners() {
 
     // User icon - go to YouTube
     document.querySelector('.user-icon').addEventListener('click', () => {
-        window.open('https://www.youtube.com', '_blank');
-    });
-
-    // Category buttons
-    document.querySelectorAll('.category-buttons .btn').forEach(button => {
-        button.addEventListener('click', () => {
-            document.querySelectorAll('.category-buttons .btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            button.classList.add('active');
-            const category = button.textContent.trim(); // Obtener el nombre de la categoría
-            renderProducts(category); // Llamar a la función con la categoría seleccionada
-        });
+        window.open('https://jeffersonrnd.github.io/LOG_SM/', '_blank');
     });
 }
+
+// Asegurarse de que el DOM esté listo antes de ejecutar el script
+document.addEventListener("DOMContentLoaded", function() {
+    setupEventListeners();
+});
+
 
 // Toast notification
 function showToast(message) {
