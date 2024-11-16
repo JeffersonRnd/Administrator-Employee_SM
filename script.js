@@ -66,6 +66,19 @@ function previewImage(id) {
     }
 }
 
+
+function setupEventListeners() {
+    // Home icon - reload page
+    document.querySelector('.home-icon').addEventListener('click', () => {
+        window.location.reload();
+    });
+
+    // User icon
+    document.querySelector('.user-icon').addEventListener('click', () => {
+        window.open('https://jeffersonrnd.github.io/LOG_SM/', '_blank');
+    });
+}
+
 // Actualiza los datos del producto
 function updateItem(id, category) {
     const imgSrc = document.getElementById(`img-${id}`).src;
