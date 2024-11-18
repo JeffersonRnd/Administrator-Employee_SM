@@ -1,4 +1,3 @@
-// Datos iniciales por categoría
 const categories = {
     abarrotes: [
         { img: "", desc: "Producto 1 - Abarrotes", id: 1 },
@@ -32,10 +31,10 @@ const categories = {
     ],
 };
 
-// Renderiza los productos de la categoría seleccionada
+
 function filterCategory(category) {
     const container = document.getElementById("category-items");
-    container.innerHTML = ""; // Limpia el contenido previo
+    container.innerHTML = "";
 
     const items = categories[category];
     items.forEach(item => {
@@ -51,7 +50,6 @@ function filterCategory(category) {
     });
 }
 
-// Previsualiza la imagen seleccionada
 function previewImage(id) {
     const fileInput = document.getElementById(`file-${id}`);
     const img = document.getElementById(`img-${id}`);
@@ -66,7 +64,6 @@ function previewImage(id) {
     }
 }
 
-// Actualiza los datos del producto
 function updateItem(id, category) {
     const imgSrc = document.getElementById(`img-${id}`).src;
     const description = document.getElementById(`desc-${id}`).value;
@@ -82,27 +79,24 @@ function updateItem(id, category) {
 // Renderiza una categoría inicial por defecto
 //filterCategory("abarrotes");
 
-// Función para abrir un modal
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
-        modal.style.display = "flex"; // Muestra el modal como flexbox
+        modal.style.display = "flex";
     }
 }
 
-// Función para cerrar un modal
 function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
-        modal.style.display = "none"; // Oculta el modal
+        modal.style.display = "none";
     }
 }
 
-// Función para guardar los cambios (puedes personalizarla según las necesidades)
 function saveChanges() {
     alert("Cambios guardados correctamente.");
 }
-// Función para manejar el clic en el botón "Generar Reporte"
+
 document.getElementById('generateReportBtn').addEventListener('click', function() {
     alert('Se ha generado correctamente el reporte.');
 });
@@ -121,26 +115,22 @@ document.addEventListener('DOMContentLoaded', () => {
     setupEventListeners();
 });
 
-// script.js
 function setupEventListeners() {
     // Home icon - reload page
     document.querySelector('.home-icon').addEventListener('click', () => {
         window.location.reload();
     });
 
-    // User icon - go to YouTube
     document.querySelector('.user-icon').addEventListener('click', () => {
         window.open('https://jeffersonrnd.github.io/LOG_SM/', '_blank');
     });
 }
 
-// Asegurarse de que el DOM esté listo antes de ejecutar el script
 document.addEventListener("DOMContentLoaded", function() {
     setupEventListeners();
 });
 
 
-// Toast notification
 function showToast(message) {
     const toast = document.createElement('div');
     toast.className = 'toast show';
@@ -152,7 +142,7 @@ function showToast(message) {
     }, 3000);
 }
 
-// Cart functions
+
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     const existingItem = cartItems.find(item => item.id === productId);
@@ -178,7 +168,7 @@ function processPay() {
 function renderProducts(category) {
     const productsGrid = document.getElementById('productsGrid');
     
-    // Filtrar productos según la categoría seleccionada
+
     const filteredProducts = products.filter(product => product.category === category);
 
     productsGrid.innerHTML = filteredProducts.map(product => `
@@ -203,12 +193,11 @@ function updateImage(imgId, fileId, descId) {
     if (file) {
         const reader = new FileReader();
         reader.onload = function (e) {
-            imageElement.src = e.target.result; // Establece la imagen cargada como fuente
+            imageElement.src = e.target.result; 
         };
         reader.readAsDataURL(file);
     }
 
-    // Actualiza la descripción
     description.value = description.value || "Descripción sin contenido";
 }
 
