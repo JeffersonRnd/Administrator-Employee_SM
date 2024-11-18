@@ -37,34 +37,34 @@ body {
 }
 
 .logo-img {
-    height: 80px;  /* Tamaño más grande del logo */
+    height: 80px;
     filter: invert(1);
-    margin-left: 1px;  /* Espacio de 1px entre el logo y el ícono de la casa */
+    margin-left: 1px;
 }
 .nav-item .nav-link svg {
-    width: 24px; /* Ajusta el tamaño del ícono según lo necesites */
-    height: 24px; /* Ajusta el tamaño del ícono según lo necesites */
+    width: 24px;
+    height: 24px;
 }
 
 .navbar-nav {
     display: flex;
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
-    gap: 1.5rem; /* Espacio entre los elementos */
-    width: 100%; /* Asegura que ocupe todo el ancho */
+    justify-content: center; 
+    align-items: center; 
+    gap: 1.5rem; 
+    width: 100%; 
 }
 
 .navbar-nav .nav-item {
     display: flex;
-    justify-content: center; /* Centra el contenido de cada item */
-    align-items: center; /* Centra verticalmente */
+    justify-content: center;
+    align-items: center;
 }
 
 .navbar-nav .nav-link {
-    color: white; /* Color de los enlaces */
+    color: white;
     display: flex;
-    justify-content: center; /* Centra el contenido de cada nav-link */
-    align-items: center; /* Centra verticalmente */
+    justify-content: center;
+    align-items: center;
 }
 
 /* Barra de búsqueda */
@@ -92,19 +92,19 @@ body {
 /* Social Icons */
 .social-icons {
     display: flex;
-    justify-content: center; /* Centra los íconos */
-    gap: 1rem; /* Espacio entre los íconos */
+    justify-content: center; 
+    gap: 1rem; 
 }
 
 .social-icon {
     width: 24px;
     height: 24px;
     transition: transform 0.2s;
-    filter: invert(1); /* Invertir los colores */
+    filter: invert(1); 
 }
 
 .social-icon:hover {
-    transform: scale(1.1); /* Efecto de hover */
+    transform: scale(1.1); 
 }
 
 /* Toast Notification */
@@ -141,7 +141,7 @@ body {
 }
 /* Estilo para el botón de generar reporte */
 #generateReportBtn {
-    width: 100%; /* Hace el botón más grande */
+    width: 100%; 
     padding: 10px;
     font-size: 18px;
 }
@@ -179,9 +179,9 @@ body {
 }
 
 .image-item img {
-    max-width: 100%;  /* Asegura que no sobrepasen el ancho del contenedor */
-    max-height: 300px; /* Limita la altura máxima de la imagen */
-    object-fit: contain;  /* Hace que la imagen se ajuste sin distorsionarse */
+    max-width: 100%; 
+    max-height: 300px; 
+    object-fit: contain;
     border-radius: 8px;
 }
 
@@ -222,19 +222,18 @@ body {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    color: black; /* Cambiar el color del texto */
-    font-size: 12px; /* Reducir el tamaño del texto */
-}
+    color: black;
+    font-size: 12px;
 
 /* Cambiar el color de los textos de ofertas */
 .image-item img {
-    color: black; /* Cambiar el color del texto de alt (si visible) */
+    color: black;
 }
 
 /* Estilo general para el texto de los mensajes */
 .image-item {
-    color: black; /* Asegura que el texto OFERTA 1, 2, etc. sea negro */
-    font-size: 14px; /* Tamaño más estándar para la legibilidad */
+    color: black;
+    font-size: 14px;
 }
 
 /* Categorías */
@@ -258,7 +257,7 @@ body {
 
 .button-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que los botones se acomoden en varias filas */
+    flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
     margin-top: 15px;
@@ -295,8 +294,8 @@ body {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    width: 90%; /* Responsivo: ocupa el 90% en pantallas pequeñas */
-    max-width: 500px; /* Limita el ancho máximo en pantallas grandes */
+    width: 90%;
+    max-width: 500px;
     text-align: center;
     font-size: 18px;
 }
@@ -311,24 +310,24 @@ body {
 .custom-modal-content button {
     padding: 12px 24px;
     font-size: 18px;
-    margin: 5px; /* Añadí margen entre los botones */
+    margin: 5px;
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
     .edit-btn {
-        font-size: 16px; /* Reduce el tamaño del texto en pantallas pequeñas */
+        font-size: 16px;
         padding: 10px 20px;
     }
 
     .custom-modal-content {
-        font-size: 16px; /* Reduce el tamaño del texto del modal */
+        font-size: 16px;
     }
 }
 
 @media (max-width: 480px) {
     .edit-btn {
-        font-size: 14px; /* Aún más pequeño en pantallas extra pequeñas */
+        font-size: 14px;
         padding: 8px 16px;
     }
 }
@@ -356,6 +355,6 @@ body {
 }
 @media (max-width: 768px) {
     .image-item {
-        width: 100%; /* Cada item ocupa el ancho completo en pantallas pequeñas */
+        width: 100%;
     }
 }
