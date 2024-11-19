@@ -14,13 +14,13 @@
 </head>
 
 <body class="bg-black text-white">
-    <!-- Loading Screen -->
+    <!-- Pantalla / de carga -->
     <div id="loadingScreen" class="loading-screen">
         <img src="images/logo.svg" alt="RESAK" class="loading-logo">
         <p class="loading-text">Cargando...</p>
     </div>
 
-    <!-- Main Content -->
+    <!-- contenido principal -->
     <div id="mainContent" class="d-none">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom border-secondary">
@@ -73,16 +73,15 @@
             </div>
         </nav>
 
-        <!-- Cart Modal (modificado a Ventas de Hoy) -->
+        <!-- Moda del reporte-->
         <div class="modal fade" id="cartModal" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content bg-dark text-white">
                     <div class="modal-header border-secondary">
-                        <h5 class="modal-title">Ventas de Hoy</h5> <!-- Cambié el título -->
+                        <h5 class="modal-title">Ventas de Hoy</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Acá aparecerán todas las ventas del día de hoy.</p> <!-- Texto descriptivo -->
                         <div id="cartContent"></div> <!-- Contenido de las ventas -->
                         <button id="generateReportBtn" class="btn btn-success mt-3">Generar Reporte</button>
                         <!-- Botón para generar reporte -->
@@ -92,9 +91,9 @@
         </div>
 
 
-        <!-- Main Content -->
+        <!-- Contenido principal -->
         <div class="container my-4">
-            <!-- Ofertas Section -->
+            <!-- Seccion de las ofertas -->
             <section class="ofertas mb-5">
                 <h2 class="section-title">OFERTAS DE ESTE MES</h2>
                 <div class="gallery-container">
@@ -256,6 +255,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="script.js"></script>
+    <!-- Librería jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
 </body>
 
 </html>
