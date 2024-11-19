@@ -79,14 +79,11 @@ function updateItem(id, category) {
     }
 }
 
-// Renderiza una categoría inicial por defecto
-//filterCategory("abarrotes");
-
 // Función para abrir un modal
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
-        modal.style.display = "flex"; // Muestra el modal como flexbox
+        modal.style.display = "flex";
     }
 }
 
@@ -94,18 +91,76 @@ function openModal(modalId) {
 function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
-        modal.style.display = "none"; // Oculta el modal
+        // Oculta el modal
+        modal.style.display = "none"; 
     }
 }
 
-// Función para guardar los cambios (puedes personalizarla según las necesidades)
+// Función para guardar los cambios 
 function saveChanges() {
     alert("Cambios guardados correctamente.");
 }
+
 // Función para manejar el clic en el botón "Generar Reporte"
 document.getElementById('generateReportBtn').addEventListener('click', function() {
-    alert('Se ha generado correctamente el reporte.');
+    generateSalesReport();
 });
+
+function generateSalesReport() {
+    const { jsPDF } = window.jspdf; 
+
+    // Crear una instancia de jsPDF
+    const doc = new jsPDF();
+
+    // Obtener la fecha de hoy
+    const today = new Date();
+    const dateString = today.toLocaleDateString(); // Fecha en formato local (día/mes/año)
+
+    // Posición inicial en Y
+    let yPosition = 10;  
+
+    // Título del reporte
+    doc.setFontSize(18);
+    doc.text(`REPORTE DE VENTAS DE HOY: ${dateString}`, 10, yPosition);
+    yPosition += 10; 
+
+    // Encabezados
+    doc.setFontSize(12);
+    doc.text('CATEGORIA-----------------------CANTIDAD COMPRADA--------------CANTIDAD PAGADA', 10, yPosition);
+    yPosition += 10; 
+
+    // Total de ventas acumuladas
+    let totalVentas = 0; 
+
+    for (let category in categories) {
+        // Nombre de la categoría
+        doc.setFontSize(12);
+        doc.text(`\n${category.toUpperCase()}`, 10, yPosition);
+        yPosition += 10;
+
+        // Recorre los productos de cada categoría
+        categories[category].forEach(item => {
+            const cantidadComprada = Math.floor(Math.random() * 10) + 1; // Simula cantidad comprada (1-10)
+            const cantidadPagada = cantidadComprada * (Math.random() * 50 + 1); // Simula la cantidad pagada
+
+            // Agrega los datos del producto
+            doc.setFontSize(10);
+            doc.text(`${item.desc}-----------------------${cantidadComprada}-----------------------S/. ${cantidadPagada.toFixed(2)}`, 10, yPosition);
+            yPosition += 6; // Espacio entre productos
+
+            totalVentas += cantidadPagada; // Acumula el total de ventas
+        });
+    }
+
+    // Total de ventas
+    yPosition += 10;
+    doc.setFontSize(12);
+    doc.text(`TOTAL EN SOLES DE LAS VENTAS DE HOY (${dateString}) ES: S/. ${totalVentas.toFixed(2)}`, 10, yPosition);
+
+    // Guarda el archivo PDF 
+    doc.save('Reporte_ventas_RESAK.pdf');
+}
+
 
 // Cart state
 let cartItems = [];
@@ -123,12 +178,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // script.js
 function setupEventListeners() {
-    // Home icon - reload page
+    // ÍICONO DE CASA
     document.querySelector('.home-icon').addEventListener('click', () => {
         window.location.reload();
     });
 
-    // User icon - go to YouTube
+    // ÍCONO DE USUARIO
     document.querySelector('.user-icon').addEventListener('click', () => {
         window.open('https://jeffersonrnd.github.io/LOG_SM/', '_blank');
     });
@@ -140,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// Toast notification
+// NOTIFICACIÓN
 function showToast(message) {
     const toast = document.createElement('div');
     toast.className = 'toast show';
@@ -150,29 +205,6 @@ function showToast(message) {
     setTimeout(() => {
         toast.remove();
     }, 3000);
-}
-
-// Cart functions
-function addToCart(productId) {
-    const product = products.find(p => p.id === productId);
-    const existingItem = cartItems.find(item => item.id === productId);
-    
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cartItems.push({...product, quantity: 1});
-    }
-    
-    showToast('Producto agregado correctamente');
-    updateCartModal();
-}
-
-function processPay() {
-    cartItems = [];
-    updateCartModal();
-    showToast('¡Pago realizado con éxito!');
-    const modal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
-    modal.hide();
 }
 
 function renderProducts(category) {
@@ -203,7 +235,8 @@ function updateImage(imgId, fileId, descId) {
     if (file) {
         const reader = new FileReader();
         reader.onload = function (e) {
-            imageElement.src = e.target.result; // Establece la imagen cargada como fuente
+            // Establece la imagen cargada como fuente
+            imageElement.src = e.target.result; 
         };
         reader.readAsDataURL(file);
     }
