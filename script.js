@@ -1,69 +1,107 @@
 // Datos iniciales por categoría
 const categories = {
     abarrotes: [
-        { img: "", desc: "Producto 1 - Abarrotes", id: 1 },
-        { img: "", desc: "Producto 2 - Abarrotes", id: 2 },
-        { img: "", desc: "Producto 3 - Abarrotes", id: 3 },
+        { img: '', desc: 'Producto 1 - Abarrotes' },
+        { img: '', desc: 'Producto 2 - Abarrotes' },
+        { img: '', desc: 'Producto 3 - Abarrotes' }
     ],
     licores: [
-        { img: "", desc: "Producto 1 - Licores", id: 4 },
-        { img: "", desc: "Producto 2 - Licores", id: 5 },
-        { img: "", desc: "Producto 3 - Licores", id: 6 },
+        { img: '', desc: 'Producto 1 - Licores' },
+        { img: '', desc: 'Producto 2 - Licores' },
+        { img: '', desc: 'Producto 3 - Licores' }
     ],
     limpieza: [
-        { img: "", desc: "Producto 1 - Limpieza", id: 7 },
-        { img: "", desc: "Producto 2 - Limpieza", id: 8 },
-        { img: "", desc: "Producto 3 - Limpieza", id: 9 },
+        { img: '', desc: 'Producto 1 - Limpieza' },
+        { img: '', desc: 'Producto 2 - Limpieza' },
+        { img: '', desc: 'Producto 3 - Limpieza' }
     ],
     carnes: [
-        { img: "", desc: "Producto 1 - Carnes", id: 10 },
-        { img: "", desc: "Producto 2 - Carnes", id: 11 },
-        { img: "", desc: "Producto 3 - Carnes", id: 12 },
+        { img: '', desc: 'Producto 1 - Carnes' },
+        { img: '', desc: 'Producto 2 - Carnes' },
+        { img: '', desc: 'Producto 3 - Carnes' }
     ],
     bebidas: [
-        { img: "", desc: "Producto 1 - Bebidas", id: 13 },
-        { img: "", desc: "Producto 2 - Bebidas", id: 14 },
-        { img: "", desc: "Producto 3 - Bebidas", id: 15 },
+        { img: '', desc: 'Producto 1 - Bebidas' },
+        { img: '', desc: 'Producto 2 - Bebidas' },
+        { img: '', desc: 'Producto 3 - Bebidas' }
     ],
     panaderia: [
-        { img: "", desc: "Producto 1 - Panadería", id: 16 },
-        { img: "", desc: "Producto 2 - Panadería", id: 17 },
-        { img: "", desc: "Producto 3 - Panadería", id: 18 },
-    ],
+        { img: '', desc: 'Producto 1 - Panadería' },
+        { img: '', desc: 'Producto 2 - Panadería' },
+        { img: '', desc: 'Producto 3 - Panadería' }
+    ]
 };
+
 
 // Renderiza los productos de la categoría seleccionada
 function filterCategory(category) {
     const container = document.getElementById("category-items");
-    container.innerHTML = ""; // Limpia el contenido previo
+    container.innerHTML = "";
 
-    const items = categories[category];
-    items.forEach(item => {
+    categories[category].forEach((item, index) => {
+        const itemId = `${category}-${index + 1}`;
         const div = document.createElement("div");
         div.className = "image-item";
         div.innerHTML = `
-            <img id="img-${item.id}" src="${item.img}" alt="${item.desc}" class="image">
-            <input type="file" id="file-${item.id}" class="file-input" accept="image/*" onchange="previewImage(${item.id})">
-            <textarea id="desc-${item.id}" class="description" placeholder="Descripción">${item.desc}</textarea>
-            <button class="update-btn" onclick="updateItem(${item.id}, '${category}')">Actualizar Datos</button>
+            <div class="image-preview">
+                <img src="${item.img || 'placeholder.jpg'}" alt="${category} ${index + 1}" 
+                    class="image" id="img-${itemId}">
+            </div>
+            <div class="image-controls">
+                <input type="file" id="file-${itemId}" class="file-input" 
+                    accept="image/*" onchange="previewImage('${itemId}')">
+                <textarea id="desc-${itemId}" class="description" 
+                    placeholder="Descripción del producto">${item.desc}</textarea>
+                <button class="update-btn" onclick="updateCategoryItem('${itemId}', '${category}')">
+                    Actualizar Datos
+                </button>
+            </div>
         `;
         container.appendChild(div);
     });
 }
 
-// Previsualiza la imagen seleccionada
-function previewImage(id) {
-    const fileInput = document.getElementById(`file-${id}`);
-    const img = document.getElementById(`img-${id}`);
 
+// Previsualiza la imagen seleccionada
+function previewImage(itemId) {
+    const fileInput = document.getElementById(`file-${itemId}`);
+    const img = document.getElementById(`img-${itemId}`);
+    
     const file = fileInput.files[0];
     if (file) {
         const reader = new FileReader();
-        reader.onload = function (e) {
+        reader.onload = function(e) {
             img.src = e.target.result;
         };
         reader.readAsDataURL(file);
     }
+}
+
+
+
+function updateCategoryItem(itemId, category) {
+    const [cat, index] = itemId.split('-');
+    const img = document.getElementById(`img-${itemId}`);
+    const desc = document.getElementById(`desc-${itemId}`).value;
+    
+    categories[category][parseInt(index) - 1] = {
+        img: img.src,
+        desc: desc
+    };
+    
+    showToast("¡Datos actualizados correctamente!");
+}
+
+
+function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast show';
+    toast.innerHTML = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
 }
 
 // Actualiza los datos del producto
