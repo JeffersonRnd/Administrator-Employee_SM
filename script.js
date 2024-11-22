@@ -291,9 +291,10 @@ new Chart(salesTodayCtx, {
         labels: ['8 AM', '10 AM', '12 PM', '2 PM', '4 PM', '6 PM', '8 PM'],
         datasets: [{
             label: 'Ventas (S/)',
-            data: [50, 75, 60, 120, 180, 220, 100], // Datos simulados
-            backgroundColor: 'rgb(54, 162, 235)', // Azul sólido
-            borderColor: 'rgb(0, 102, 204)', // Azul más oscuro
+            // Datos
+            data: [50, 75, 60, 120, 180, 220, 100],
+            backgroundColor: 'rgb(54, 162, 235)',
+            borderColor: 'rgb(0, 102, 204)',
             borderWidth: 1
         }]
     },
@@ -303,19 +304,19 @@ new Chart(salesTodayCtx, {
             legend: {
                 display: true,
                 labels: {
-                    color: '#000' // Leyenda en negro
+                    color: '#000'
                 }
             }
         },
         scales: {
             x: {
                 ticks: {
-                    color: '#000' // Eje X en negro
+                    color: '#000' // Eje X 
                 }
             },
             y: {
                 ticks: {
-                    color: '#000' // Eje Y en negro
+                    color: '#000' // Eje Y 
                 }
             }
         }
@@ -330,22 +331,23 @@ new Chart(productsInStockCtx, {
         labels: ['Abarrotes', 'Licores', 'Limpieza', 'Carnes', 'Bebidas', 'Panadería'],
         datasets: [{
             label: 'Cantidad en Stock',
-            data: [120, 90, 60, 50, 30, 70], // Datos simulados
+            // Datos
+            data: [120, 90, 60, 50, 30, 70],
             backgroundColor: [
-                'rgb(255, 99, 132)',  // Rojo fuerte
-                'rgb(255, 159, 64)',  // Naranja fuerte
-                'rgb(255, 206, 86)',  // Amarillo fuerte
-                'rgb(75, 192, 192)',  // Turquesa fuerte
-                'rgb(54, 162, 235)',  // Azul fuerte
-                'rgb(153, 102, 255)'  // Morado fuerte
+                'rgb(255, 99, 132)',
+                'rgb(255, 159, 64)',
+                'rgb(255, 206, 86)',
+                'rgb(75, 192, 192)',
+                'rgb(54, 162, 235)', 
+                'rgb(153, 102, 255)' 
             ],
             borderColor: [
-                'rgb(204, 51, 51)',   // Rojo más oscuro
-                'rgb(204, 102, 0)',   // Naranja más oscuro
-                'rgb(204, 153, 0)',   // Amarillo más oscuro
-                'rgb(0, 153, 153)',   // Turquesa más oscuro
-                'rgb(0, 102, 204)',   // Azul más oscuro
-                'rgb(102, 51, 204)'   // Morado más oscuro
+                'rgb(204, 51, 51)', 
+                'rgb(204, 102, 0)', 
+                'rgb(204, 153, 0)', 
+                'rgb(0, 153, 153)', 
+                'rgb(0, 102, 204)',  
+                'rgb(102, 51, 204)' 
             ],
             borderWidth: 1
         }]
@@ -356,7 +358,7 @@ new Chart(productsInStockCtx, {
             legend: {
                 position: 'bottom',
                 labels: {
-                    color: '#000' // Leyenda en negro
+                    color: '#000'
                 }
             }
         }
@@ -371,9 +373,10 @@ new Chart(salesPerformanceCtx, {
         labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre'],
         datasets: [{
             label: 'Ventas Mensuales (S/)',
-            data: [1200, 1400, 1100, 1600, 1800, 1700, 1900, 2000, 2100, 2200], // Datos simulados
-            backgroundColor: 'rgba(153, 102, 255, 0.7)', // Morado sólido semitransparente
-            borderColor: 'rgb(102, 51, 204)', // Morado sólido
+            // Datos
+            data: [1200, 1400, 1100, 1600, 1800, 1700, 1900, 2000, 2100, 2200],
+            backgroundColor: 'rgba(153, 102, 255, 0.7)',
+            borderColor: 'rgb(102, 51, 204)',
             borderWidth: 2,
             fill: true
         }]
@@ -384,19 +387,19 @@ new Chart(salesPerformanceCtx, {
             legend: {
                 display: true,
                 labels: {
-                    color: '#000' // Leyenda en negro
+                    color: '#000'
                 }
             }
         },
         scales: {
             x: {
                 ticks: {
-                    color: '#000' // Eje X en negro
+                    color: '#000' // Eje X 
                 }
             },
             y: {
                 ticks: {
-                    color: '#000' // Eje Y en negro
+                    color: '#000' // Eje Y
                 }
             }
         }
