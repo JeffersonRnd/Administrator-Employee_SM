@@ -288,6 +288,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
+    z-index: 9999; /* Asegura que esté encima de otros elementos */
 }
 
 .custom-modal-content {
@@ -298,6 +299,7 @@ body {
     max-width: 500px; 
     text-align: center;
     font-size: 18px;
+    z-index: 10000; /* Asegura que el contenido del modal esté encima del fondo */
 }
 
 .custom-modal-content input {
@@ -312,6 +314,7 @@ body {
     font-size: 18px;
     margin: 5px; 
 }
+
 
 /* Responsivo */
 @media (max-width: 768px) {
