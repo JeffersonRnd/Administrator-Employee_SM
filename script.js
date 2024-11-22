@@ -282,3 +282,123 @@ function updateImage(imgId, fileId, descId) {
     // Actualiza la descripción
     description.value = description.value || "Descripción sin contenido";
 }
+
+// Ventas del Día
+const salesTodayCtx = document.getElementById('sales-today-chart').getContext('2d');
+new Chart(salesTodayCtx, {
+    type: 'bar',
+    data: {
+        labels: ['8 AM', '10 AM', '12 PM', '2 PM', '4 PM', '6 PM', '8 PM'],
+        datasets: [{
+            label: 'Ventas (S/)',
+            data: [50, 75, 60, 120, 180, 220, 100], // Datos simulados
+            backgroundColor: 'rgb(54, 162, 235)', // Azul sólido
+            borderColor: 'rgb(0, 102, 204)', // Azul más oscuro
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: true,
+                labels: {
+                    color: '#000' // Leyenda en negro
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: '#000' // Eje X en negro
+                }
+            },
+            y: {
+                ticks: {
+                    color: '#000' // Eje Y en negro
+                }
+            }
+        }
+    }
+});
+
+// Productos en Stock
+const productsInStockCtx = document.getElementById('products-in-stock-chart').getContext('2d');
+new Chart(productsInStockCtx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Abarrotes', 'Licores', 'Limpieza', 'Carnes', 'Bebidas', 'Panadería'],
+        datasets: [{
+            label: 'Cantidad en Stock',
+            data: [120, 90, 60, 50, 30, 70], // Datos simulados
+            backgroundColor: [
+                'rgb(255, 99, 132)',  // Rojo fuerte
+                'rgb(255, 159, 64)',  // Naranja fuerte
+                'rgb(255, 206, 86)',  // Amarillo fuerte
+                'rgb(75, 192, 192)',  // Turquesa fuerte
+                'rgb(54, 162, 235)',  // Azul fuerte
+                'rgb(153, 102, 255)'  // Morado fuerte
+            ],
+            borderColor: [
+                'rgb(204, 51, 51)',   // Rojo más oscuro
+                'rgb(204, 102, 0)',   // Naranja más oscuro
+                'rgb(204, 153, 0)',   // Amarillo más oscuro
+                'rgb(0, 153, 153)',   // Turquesa más oscuro
+                'rgb(0, 102, 204)',   // Azul más oscuro
+                'rgb(102, 51, 204)'   // Morado más oscuro
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    color: '#000' // Leyenda en negro
+                }
+            }
+        }
+    }
+});
+
+// Rendimiento de Ventas
+const salesPerformanceCtx = document.getElementById('sales-chart').getContext('2d');
+new Chart(salesPerformanceCtx, {
+    type: 'line',
+    data: {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre'],
+        datasets: [{
+            label: 'Ventas Mensuales (S/)',
+            data: [1200, 1400, 1100, 1600, 1800, 1700, 1900, 2000, 2100, 2200], // Datos simulados
+            backgroundColor: 'rgba(153, 102, 255, 0.7)', // Morado sólido semitransparente
+            borderColor: 'rgb(102, 51, 204)', // Morado sólido
+            borderWidth: 2,
+            fill: true
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: true,
+                labels: {
+                    color: '#000' // Leyenda en negro
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: '#000' // Eje X en negro
+                }
+            },
+            y: {
+                ticks: {
+                    color: '#000' // Eje Y en negro
+                }
+            }
+        }
+    }
+});
