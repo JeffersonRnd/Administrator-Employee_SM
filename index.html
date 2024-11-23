@@ -166,6 +166,7 @@
             <!-- Modal para Editar Logo -->
             <div id="logoEditModal" class="custom-modal-container">
                 <div class="custom-modal-content">
+                    <button class="close-modal-btn" onclick="closeModal('logoEditModal')">&times;</button>
                     <h3 style="color: black;">Insertar Nuevo Logo</h3>
                     <input type="file" accept="image/*" />
                     <button onclick="saveChanges()">Guardar</button>
@@ -176,6 +177,7 @@
             <!-- Modal para Editar Dirección -->
             <div id="addressEditModal" class="custom-modal-container">
                 <div class="custom-modal-content">
+                    <button class="close-modal-btn" onclick="closeModal('addressEditModal')">&times;</button>
                     <h3 style="color: black;">Insertar Nueva Dirección</h3>
                     <input type="text" placeholder="Pegar enlace de Google Maps" />
                     <button onclick="saveChanges()">Guardar</button>
@@ -186,6 +188,7 @@
             <!-- Modal para Editar Contacto -->
             <div id="contactEditModal" class="custom-modal-container">
                 <div class="custom-modal-content">
+                    <button class="close-modal-btn" onclick="closeModal('contactEditModal')">&times;</button>
                     <h3 style="color: black;">Agregar Nuevo Contacto</h3>
                     <input type="text" placeholder="Número de teléfono" />
                     <button onclick="saveChanges()">Guardar</button>
@@ -196,6 +199,7 @@
             <!-- Modal para Editar Redes -->
             <div id="socialMediaEditModal" class="custom-modal-container">
                 <div class="custom-modal-content">
+                    <button class="close-modal-btn" onclick="closeModal('socialMediaEditModal')">&times;</button>
                     <h3 style="color: black;">Agregar Nuevos Enlaces</h3>
                     <label>Facebook:</label>
                     <input type="text" placeholder="Pegar enlace de Facebook" />
@@ -208,10 +212,11 @@
                 </div>
             </div>
 
+
             <!-- Dashboard -->
             <section id="admin-dashboard">
                 <div class="container mt-5">
-                    <h2 class="text-center mb-4" >Panel de Administración</h2>
+                    <h2 class="text-center mb-4">Panel de Administración</h2>
                     <div class="row">
                         <!-- Ventas del Día -->
                         <div class="col-md-4">
