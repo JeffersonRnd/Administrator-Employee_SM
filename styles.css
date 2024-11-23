@@ -288,7 +288,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Asegura que esté encima de otros elementos */
+    z-index: 9999; 
 }
 
 .custom-modal-content {
@@ -299,7 +299,8 @@ body {
     max-width: 500px; 
     text-align: center;
     font-size: 18px;
-    z-index: 10000; /* Asegura que el contenido del modal esté encima del fondo */
+    position: relative; 
+    z-index: 10000; 
 }
 
 .custom-modal-content input {
@@ -313,6 +314,32 @@ body {
     padding: 12px 24px;
     font-size: 18px;
     margin: 5px; 
+}
+
+/* Botón de cierre del modal */
+.close-modal-btn {
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    background-color: black; 
+    color: white; 
+    border: 2px solid white; 
+    border-radius: 5px;
+    font-size: 28px;
+    font-weight: bold; 
+    width: 40px; 
+    height: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10001; 
+}
+
+.close-modal-btn:hover {
+    background-color: red; 
+    border-color: black; 
+    color: black; 
 }
 
 
